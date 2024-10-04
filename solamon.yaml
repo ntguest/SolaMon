@@ -620,6 +620,7 @@ text_sensor:
 
 select:
   - platform: modbus_controller
+    modbus_controller_id: smg_inverter
     name: "Buzzer Alarm"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -631,6 +632,7 @@ select:
       "On": 1
 
   - platform: modbus_controller
+    modbus_controller_id: smg_inverter
     name: "Beep On Primary Source Fail"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -642,6 +644,7 @@ select:
       "On": 1
 
   - platform: modbus_controller
+    modbus_controller_id: smg_inverter
     name: "Overload Bypass"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -654,6 +657,7 @@ select:
 
   - platform: modbus_controller
     id: charger_source_priority_select
+    modbus_controller_id: smg_inverter
     name: "Charger Source Priority"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -669,6 +673,7 @@ select:
 
   - platform: modbus_controller
     id: output_source_priority_select
+    modbus_controller_id: smg_inverter
     name: "Output Source Priority"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -681,6 +686,7 @@ select:
       "SBU priority": 2
 
   - platform: modbus_controller
+    modbus_controller_id: smg_inverter
     name: "Max Total Charge Current"
     optimistic: true
     skip_updates: ${select_skip_updates}
@@ -698,6 +704,7 @@ select:
       "80": 80
 
   - platform: modbus_controller
+    modbus_controller_id: smg_inverter
     name: "Utility Charge Current"
     optimistic: true
     skip_updates: ${select_skip_updates}
