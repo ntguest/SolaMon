@@ -1,8 +1,8 @@
 uart:
   - id: uart_0
     baud_rate: 2400
-    tx_pin: ${tx_pin}
-    rx_pin: ${rx_pin}
+    tx_pin: ${inverter_tx_pin}
+    rx_pin: ${inverter_rx_pin}
 #    debug:
 #      direction: BOTH
 #      dummy_receiver: false
