@@ -105,8 +105,8 @@ sensor:
       name: "battery_discharge_current"
     battery_voltage_offset_for_fans_on:
       name: "battery_voltage_offset_for_fans_on"
-    eeprom_version:
-      name: "N eeprom_version"
+#    eeprom_version:
+#      name: "N eeprom_version"
     pv_charging_power:
       name: "pv_charging_power"
 
@@ -123,14 +123,14 @@ text_sensor:
           - B -> Battery mode
           - F -> Fault mode
           - D -> Shutdown mode
-    last_qpigs:
-      name: "N last_qpigs"
-    last_qpiri:
-      name: "N last_qpiri"
-    last_qmod:
-      name: "N last_qmod"
-    last_qflag:
-      name: "N last_qflag"
+#    last_qpigs:
+#      name: "N last_qpigs"
+#    last_qpiri:
+#      name: "N last_qpiri"
+#    last_qmod:
+#      name: "N last_qmod"
+#    last_qflag:
+#      name: "N last_qflag"
 
 binary_sensor:
   - platform: pipsolar
@@ -139,8 +139,8 @@ binary_sensor:
       name: "add_sbu_priority_version"
     configuration_status:
       name: "configuration_status"
-    scc_firmware_version:
-      name: "N scc_firmware_version"
+#    scc_firmware_version:
+#      name: "N scc_firmware_version"
     load_status:
       name: "load_status"
     battery_voltage_to_steady_while_charging:
@@ -155,8 +155,8 @@ binary_sensor:
       name: "charging_to_floating_mode"
     switch_on:
       name: "switch_on"
-    dustproof_installed:
-      name: "N dustproof_installed"
+#    dustproof_installed:
+#      name: "N dustproof_installed"
     silence_buzzer_open_buzzer:
       name: "silence_buzzer_open_buzzer"
     overload_bypass_function:
@@ -168,7 +168,7 @@ binary_sensor:
     over_temperature_restart_function:
       name: "over_temperature_restart_function"
     backlight_on:
-      name: "N backlight_on"
+      name: "backlight_on"
 
 switch:
   - platform: pipsolar
