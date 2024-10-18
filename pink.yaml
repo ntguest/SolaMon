@@ -19,56 +19,56 @@ sensor:
   - platform: pipsolar
     pipsolar_id: inverter0
     # QPIRI
-#    grid_rating_voltage:
-#      name: "grid_rating_voltage"
-#    grid_rating_current:
-#      name: "grid_rating_current"
-#    ac_output_rating_voltage:
-#      name: "ac_output_rating_voltage"
-#    ac_output_rating_frequency:
-#      name: "ac_output_rating_frequency"
-#    ac_output_rating_current:
-#      name: "ac_output_rating_current"
-#    ac_output_rating_apparent_power:
-#      name: "ac_output_rating_apparent_power"
-#    ac_output_rating_active_power:
-#      name: "ac_output_rating_active_power"
-#    battery_rating_voltage:
-#      name: "battery_rating_voltage"
-#    battery_recharge_voltage:
-#      name: "battery_recharge_voltage"
-#    battery_under_voltage:
-#      name: "battery_under_voltage"
-#    battery_bulk_voltage:
-#      name: "battery_bulk_voltage"
-#    battery_float_voltage:
-#      name: "battery_float_voltage"
-#    battery_type:
-#      name: "battery_type"
-#    current_max_ac_charging_current:
-#      name: "current_max_ac_charging_current"
-#    current_max_charging_current:
-#      name: "current_max_charging_current"
-#    input_voltage_range:
-#      name: "input_voltage_range"
-#    output_source_priority:
-#      name: "output_source_priority"
-#    charger_source_priority:
-#      name: "charger_source_priority"
-#    parallel_max_num:
-#      name: "parallel_max_num"
-#    machine_type:
-#      name: "machine_type"
-#    topology:
-#      name: "topology"
-#    output_mode:
-#      name: "output_mode"
-#    battery_redischarge_voltage:
-#      name: "battery_redischarge_voltage"
-#    pv_ok_condition_for_parallel:
-#      name: "pv_ok_condition_for_parallel"
-#    pv_power_balance:
-#      name: "pv_power_balance"
+    grid_rating_voltage:
+      name: "QPIRI grid_rating_voltage"
+    grid_rating_current:
+      name: "QPIRI grid_rating_current"
+    ac_output_rating_voltage:
+      name: "QPIRI ac_output_rating_voltage"
+    ac_output_rating_frequency:
+      name: "QPIRI ac_output_rating_frequency"
+    ac_output_rating_current:
+      name: "QPIRI ac_output_rating_current"
+    ac_output_rating_apparent_power:
+      name: "QPIRI ac_output_rating_apparent_power"
+    ac_output_rating_active_power:
+      name: "QPIRI ac_output_rating_active_power"
+    battery_rating_voltage:
+      name: "QPIRI battery_rating_voltage"
+    battery_recharge_voltage:
+      name: "QPIRI battery_recharge_voltage"
+    battery_under_voltage:
+      name: "QPIRI battery_under_voltage"
+    battery_bulk_voltage:
+      name: "QPIRI battery_bulk_voltage"
+    battery_float_voltage:
+      name: "QPIRI battery_float_voltage"
+    battery_type:
+      name: "QPIRI battery_type"
+    current_max_ac_charging_current:
+      name: "QPIRI current_max_ac_charging_current"
+    current_max_charging_current:
+      name: "QPIRI current_max_charging_current"
+    input_voltage_range:
+      name: "QPIRI input_voltage_range"
+    output_source_priority:
+      name: "QPIRI output_source_priority"
+    charger_source_priority:
+      name: "QPIRI charger_source_priority"
+    parallel_max_num:
+      name: "QPIRI parallel_max_num"
+    machine_type:
+      name: "QPIRI machine_type"
+    topology:
+      name: "QPIRI topology"
+    output_mode:
+      name: "QPIRI output_mode"
+    battery_redischarge_voltage:
+      name: "QPIRI battery_redischarge_voltage"
+    pv_ok_condition_for_parallel:
+      name: "QPIRI pv_ok_condition_for_parallel"
+    pv_power_balance:
+      name: "QPIRI pv_power_balance"
 
     # QPIGS
     grid_voltage:
@@ -105,8 +105,8 @@ sensor:
       name: "battery_discharge_current"
     battery_voltage_offset_for_fans_on:
       name: "battery_voltage_offset_for_fans_on"
-#    eeprom_version:
-#      name: "eeprom_version"
+    eeprom_version:
+      name: "N eeprom_version"
     pv_charging_power:
       name: "pv_charging_power"
 
@@ -123,14 +123,14 @@ text_sensor:
           - B -> Battery mode
           - F -> Fault mode
           - D -> Shutdown mode
-#    last_qpigs:
-#      name: "last_qpigs"
-#    last_qpiri:
-#      name: "last_qpiri"
-#    last_qmod:
-#      name: "last_qmod"
-#    last_qflag:
-#      name: "last_qflag"
+    last_qpigs:
+      name: "N last_qpigs"
+    last_qpiri:
+      name: "N last_qpiri"
+    last_qmod:
+      name: "N last_qmod"
+    last_qflag:
+      name: "N last_qflag"
 
 binary_sensor:
   - platform: pipsolar
@@ -139,8 +139,8 @@ binary_sensor:
       name: "add_sbu_priority_version"
     configuration_status:
       name: "configuration_status"
-#    scc_firmware_version:
-#      name: "scc_firmware_version"
+    scc_firmware_version:
+      name: "N scc_firmware_version"
     load_status:
       name: "load_status"
     battery_voltage_to_steady_while_charging:
@@ -155,8 +155,8 @@ binary_sensor:
       name: "charging_to_floating_mode"
     switch_on:
       name: "switch_on"
-#    dustproof_installed:
-#      name: "dustproof_installed"
+    dustproof_installed:
+      name: "N dustproof_installed"
     silence_buzzer_open_buzzer:
       name: "silence_buzzer_open_buzzer"
     overload_bypass_function:
@@ -167,8 +167,8 @@ binary_sensor:
       name: "overload_restart_function"
     over_temperature_restart_function:
       name: "over_temperature_restart_function"
-#    backlight_on:
-#      name: "backlight_on"
+    backlight_on:
+      name: "N backlight_on"
 
 switch:
   - platform: pipsolar
