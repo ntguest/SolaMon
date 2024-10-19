@@ -326,6 +326,14 @@ text_sensor:
     device_mode:
       id: ${nm}_device_mode
       name: device mode
+      filters:
+        map:
+          - P -> Power on mode
+          - S -> Standby mode
+          - L -> Line mode
+          - B -> Battery mode
+          - F -> Fault mode
+          - D -> Shutdown mode
     last_qpigs:
       id: ${nm}_last_qpigs
       name: last qpigs
