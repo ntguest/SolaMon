@@ -311,9 +311,9 @@ binary_sensor:
     fault_code:
       id: ${nm}_fault_code
       name: fault code
-    warning_low_pv_energy:
-      id: ${nm}_warning_low_pv_energy
-      name: warning low pv energy
+#    warning_low_pv_energy:
+#      id: ${nm}_warning_low_pv_energy
+#      name: warning low pv energy
     warning_high_ac_input_during_bus_soft_start:
       id: ${nm}_warning_high_ac_input_during_bus_soft_start
       name: warning high ac input during bus soft start
