@@ -1,5 +1,5 @@
 uart:
-  - id: uart_0
+  - id: rs232
     baud_rate: 2400
     tx_pin: ${inverter_tx_pin}
     rx_pin: ${inverter_rx_pin}
@@ -12,7 +12,7 @@ uart:
 #        - lambda: UARTDebug::log_string(direction, bytes);
 
 pipsolar:
-  uart_id: uart_0
+  uart_id: rs232
   id: inverter0
 sensor:
   - platform: pipsolar
