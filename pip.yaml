@@ -359,25 +359,25 @@ switch:
   - platform: pipsolar
     pipsolar_id: inverter0
     output_source_priority_utility:
-      id: ${nm}_output_source_priority_utility
+      id: output_source_priority_utility
       name: output source priority utility
     output_source_priority_solar:
-      id: ${nm}_output_source_priority_solar
+      id: output_source_priority_solar
       name: output source priority solar 
     output_source_priority_battery:
-      id: ${nm}_output_source_priority_battery
+      id: output_source_priority_battery
       name: output source priority battery
     output_source_priority_hybrid:
-      id: ${nm}_output_source_priority_hybrid
+      id: output_source_priority_hybrid
       name: output source priority hybrid
     input_voltage_range:
-      id: ${nm}_input_voltage_range
+      id: input_voltage_range
       name: input voltage range
     pv_ok_condition_for_parallel:
-      id: ${nm}_pv_ok_condition_for_parallel
+      id: pv_ok_condition_for_parallel
       name: pv ok condition for parallel
     pv_power_balance:
-      id: ${nm}_pv_power_balance
+      id: pv_power_balance
       name: pv power balance
 output:
   - platform: pipsolar
