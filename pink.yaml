@@ -1,21 +1,21 @@
-on_boot:
-    priority: 600
-    # ...
-    then:
-      - if:
-          condition:
-            - lambda: 'return id(${nm}_output_source_priority).state == 0;'
-          then:
-            - select.set:
-                id: ${nm}_output_source_priority_select
-                value: "SUb"
-      - if:
-          condition:
-            - lambda: 'return id(${nm}_output_source_priority).state == 2;'
-          then:
-            - select.set:
-                id: ${nm}_output_source_priority_select
-                value: "SbU"
+esphome:
+  on_boot:
+      priority: 600
+      then:
+        - if:
+            condition:
+              - lambda: 'return id(${nm}_output_source_priority).state == 0;'
+            then:
+              - select.set:
+                  id: ${nm}_output_source_priority_select
+                  value: "SUb"
+        - if:
+            condition:
+              - lambda: 'return id(${nm}_output_source_priority).state == 2;'
+            then:
+              - select.set:
+                  id: ${nm}_output_source_priority_select
+                  value: "SbU"
 
 
 uart:
