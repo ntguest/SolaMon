@@ -8,15 +8,14 @@ esphome:
             then:
               - select.set:
                   id: ${nm}_output_source_priority_select
-                  value: "SUb"
+                  option: "SUb"
         - if:
             condition:
               - lambda: 'return id(${nm}_output_source_priority).state == 2;'
             then:
               - select.set:
                   id: ${nm}_output_source_priority_select
-                  value: "SbU"
-
+                  option: "SbU"
 
 uart:
   - id: rs232
