@@ -4,14 +4,14 @@ esphome:
       then:
         - if:
             condition:
-              - lambda: 'return id(${nm}_output_source_priority).state == 0;'
+              - lambda: 'return id(${nm}_output_source_priority).state == 0.0;'
             then:
               - select.set:
                   id: ${nm}_output_source_priority_select
                   option: "SUb"
         - if:
             condition:
-              - lambda: 'return id(${nm}_output_source_priority).state == 2;'
+              - lambda: 'return id(${nm}_output_source_priority).state == 2.0;'
             then:
               - select.set:
                   id: ${nm}_output_source_priority_select
