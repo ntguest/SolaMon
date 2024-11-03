@@ -1,0 +1,402 @@
+uart:
+  - id: rs232
+    baud_rate: 2400
+    tx_pin: ${inverter_tx_pin}
+    rx_pin: ${inverter_rx_pin}
+#    debug:
+#      direction: BOTH
+#      dummy_receiver: false
+#      after:
+#        delimiter: "\r"
+#      sequence:
+#        - lambda: UARTDebug::log_string(direction, bytes);
+
+pipsolar:
+  uart_id: rs232
+  id: inverter0
+sensor:
+  - platform: pipsolar
+    pipsolar_id: inverter0
+    grid_rating_voltage:
+      id: ${nm}_grid_rating_voltage
+      name: grid rating voltage
+    grid_rating_current:
+      id: ${nm}_grid_rating_current
+      name: grid rating current
+    ac_output_rating_voltage:
+      id: ${nm}_ac_output_rating_voltage
+      name: ac output rating voltage
+    ac_output_rating_frequency:
+      id: ${nm}_ac_output_rating_frequency
+      name: ac output rating frequency
+    ac_output_rating_current:
+      id: ${nm}_ac_output_rating_current
+      name: ac output rating current
+    ac_output_rating_apparent_power:
+      id: ${nm}_ac_output_rating_apparent_power
+      name: ac output rating apparent power
+    ac_output_rating_active_power:
+      id: ${nm}_ac_output_rating_active_power
+      name: ac output rating active power
+    battery_rating_voltage:
+      id: ${nm}_battery_rating_voltage
+      name: battery rating voltage
+    battery_recharge_voltage:
+      id: ${nm}_battery_recharge_voltage
+      name: battery recharge voltage
+    battery_under_voltage:
+      id: ${nm}_battery_under_voltage
+      name: battery under voltage
+    battery_bulk_voltage:
+      id: ${nm}_battery_bulk_voltage
+      name: battery bulk voltage
+    battery_float_voltage:
+      id: ${nm}_battery_float_voltage
+      name: battery float voltage
+    battery_type:
+      id: ${nm}_battery_type
+      name: battery type
+    current_max_ac_charging_current:
+      id: ${nm}_current_max_ac_charging_current
+      name: current max ac charging current
+    current_max_charging_current:
+      id: ${nm}_current_max_charging_current
+      name: current max charging current
+    input_voltage_range:
+      id: ${nm}_input_voltage_range
+      name: input voltage range
+    output_source_priority:
+      id: ${nm}_output_source_priority
+      name: output source priority
+    charger_source_priority:
+      id: ${nm}_charger_source_priority
+      name: charger source priority
+    parallel_max_num:
+      id: ${nm}_parallel_max_num
+      name: parallel max num
+    machine_type:
+      id: ${nm}_machine_type
+      name: machine type
+    topology:
+      id: ${nm}_topology
+      name: topology
+    output_mode:
+      id: ${nm}_output_mode
+      name: output mode
+    battery_redischarge_voltage:
+      id: ${nm}_battery_redischarge_voltage
+      name: battery redischarge voltage
+    pv_ok_condition_for_parallel:
+      id: ${nm}_pv_ok_condition_for_parallel
+      name: pv ok condition for parallel
+    pv_power_balance:
+      id: ${nm}_pv_power_balance
+      name: pv power balance
+    grid_voltage:
+      id: ${nm}_grid_voltage
+      name: grid voltage
+    grid_frequency:
+      id: ${nm}_grid_frequency
+      name: grid frequency
+    ac_output_voltage:
+      id: ${nm}_ac_output_voltage
+      name: ac output voltage
+    ac_output_frequency:
+      id: ${nm}_ac_output_frequency
+      name: ac output frequency
+    ac_output_apparent_power:
+      id: ${nm}_ac_output_apparent_power
+      name: ac output apparent power
+    ac_output_active_power:
+      id: ${nm}_ac_output_active_power
+      name: ac output active power
+    output_load_percent:
+      id: ${nm}_output_load_percent
+      name: output load percent
+    bus_voltage:
+      id: ${nm}_bus_voltage
+      name: bus voltage
+    battery_voltage:
+      id: ${nm}_battery_voltage
+      name: battery voltage
+    battery_charging_current:
+      id: ${nm}_battery_charging_current
+      name: battery charging current
+    battery_capacity_percent:
+      id: ${nm}_battery_capacity_percent
+      name: battery capacity percent
+    inverter_heat_sink_temperature:
+      id: ${nm}_inverter_heat_sink_temperature
+      name: inverter heat sink temperature
+    pv_input_current_for_battery:
+      id: ${nm}_pv_input_current_for_battery
+      name: pv input current for battery
+    pv_input_voltage:
+      id: ${nm}_pv_input_voltage
+      name: pv input voltage
+    battery_voltage_scc:
+      id: ${nm}_battery_voltage_scc
+      name: battery voltage scc
+    battery_discharge_current:
+      id: ${nm}_battery_discharge_current
+      name: battery discharge current
+    battery_voltage_offset_for_fans_on:
+      id: ${nm}_battery_voltage_offset_for_fans_on
+      name: battery voltage offset for fans on
+    eeprom_version:
+      id: ${nm}_eeprom_version
+      name: eeprom version
+    pv_charging_power:
+      id: ${nm}_pv_charging_power
+      name: pv charging power
+binary_sensor:
+  - platform: pipsolar
+    pipsolar_id: inverter0
+    add_sbu_priority_version:
+      id: ${nm}_add_sbu_priority_version
+      name: add sbu priority version
+    configuration_status:
+      id: ${nm}_configuration_status
+      name: configuration status
+    scc_firmware_version:
+      id: ${nm}_scc_firmware_version
+      name: scc firmware version
+    load_status:
+      id: ${nm}_load_status
+      name: load status
+    battery_voltage_to_steady_while_charging:
+      id: ${nm}_battery_voltage_to_steady_while_charging
+      name: battery voltage to steady while charging
+    charging_status:
+      id: ${nm}_charging_status
+      name: charging status
+    scc_charging_status:
+      id: ${nm}_scc_charging_status
+      name: scc charging status
+    ac_charging_status:
+      id: ${nm}_ac_charging_status
+      name: ac charging status
+    charging_to_floating_mode:
+      id: ${nm}_charging_to_floating_mode
+      name: charging to floating mode
+    switch_on:
+      id: ${nm}_switch_on
+      name: switch on
+    dustproof_installed:
+      id: ${nm}_dustproof_installed
+      name: dustproof installed
+    silence_buzzer_open_buzzer:
+      id: ${nm}_silence_buzzer_open_buzzer
+      name: silence buzzer open buzzer
+    overload_bypass_function:
+      id: ${nm}_overload_bypass_function
+      name: overload bypass function
+    lcd_escape_to_default:
+      id: ${nm}_lcd_escape_to_default
+      name: lcd escape to default
+    overload_restart_function:
+      id: ${nm}_overload_restart_function
+      name: overload restart function
+    over_temperature_restart_function:
+      id: ${nm}_over_temperature_restart_function
+      name: over temperature restart function
+    backlight_on:
+      id: ${nm}_backlight_on
+      name: backlight on
+    alarm_on_when_primary_source_interrupt:
+      id: ${nm}_alarm_on_when_primary_source_interrupt
+      name: alarm on when primary source interrupt
+    fault_code_record:
+      id: ${nm}_fault_code_record
+      name: fault code record
+    power_saving:
+      id: ${nm}_power_saving
+      name: power saving
+    warnings_present:
+      id: ${nm}_warnings_present
+      name: warnings present
+    faults_present:
+      id: ${nm}_faults_present
+      name: faults present
+    warning_power_loss:
+      id: ${nm}_warning_power_loss
+      name: warning power loss
+    fault_inverter_fault:
+      id: ${nm}_fault_inverter_fault
+      name: fault inverter fault
+    fault_bus_over:
+      id: ${nm}_fault_bus_over
+      name: fault bus over
+    fault_bus_under:
+      id: ${nm}_fault_bus_under
+      name: fault bus under
+    fault_bus_soft_fail:
+      id: ${nm}_fault_bus_soft_fail
+      name: fault bus soft fail
+    warning_line_fail:
+      id: ${nm}_warning_line_fail
+      name: warning line fail
+    fault_opvshort:
+      id: ${nm}_fault_opvshort
+      name: fault opvshort
+    fault_inverter_voltage_too_low:
+      id: ${nm}_fault_inverter_voltage_too_low
+      name: fault inverter voltage too low
+    fault_inverter_voltage_too_high:
+      id: ${nm}_fault_inverter_voltage_too_high
+      name: fault inverter voltage too high
+    warning_over_temperature:
+      id: ${nm}_warning_over_temperature
+      name: warning over temperature
+    warning_fan_lock:
+      id: ${nm}_warning_fan_lock
+      name: warning fan lock
+    warning_battery_voltage_high:
+      id: ${nm}_warning_battery_voltage_high
+      name: warning battery voltage high
+    warning_battery_low_alarm:
+      id: ${nm}_warning_battery_low_alarm
+      name: warning battery low alarm
+    warning_battery_under_shutdown:
+      id: ${nm}_warning_battery_under_shutdown
+      name: warning battery under shutdown
+    warning_battery_derating:
+      id: ${nm}_warning_battery_derating
+      name: warning battery derating
+    warning_over_load:
+      id: ${nm}_warning_over_load
+      name: warning over load
+    warning_eeprom_failed:
+      id: ${nm}_warning_eeprom_failed
+      name: warning eeprom failed
+    fault_inverter_over_current:
+      id: ${nm}_fault_inverter_over_current
+      name: fault inverter over current
+    fault_inverter_soft_failed:
+      id: ${nm}_fault_inverter_soft_failed
+      name: fault inverter soft failed
+    fault_self_test_failed:
+      id: ${nm}_fault_self_test_failed
+      name: fault self test failed
+    fault_op_dc_voltage_over:
+      id: ${nm}_fault_op_dc_voltage_over
+      name: fault op dc voltage over
+    fault_battery_open:
+      id: ${nm}_fault_battery_open
+      name: fault battery open
+    fault_current_sensor_failed:
+      id: ${nm}_fault_current_sensor_failed
+      name: fault current sensor failed
+    fault_battery_short:
+      id: ${nm}_fault_battery_short
+      name: fault battery short
+    warning_power_limit:
+      id: ${nm}_warning_power_limit
+      name: warning power limit
+    warning_pv_voltage_high:
+      id: ${nm}_warning_pv_voltage_high
+      name: warning pv voltage high
+    fault_mppt_overload:
+      id: ${nm}_fault_mppt_overload
+      name: fault mppt overload
+    warning_mppt_overload:
+      id: ${nm}_warning_mppt_overload
+      name: warning mppt overload
+    warning_battery_too_low_to_charge:
+      id: ${nm}_warning_battery_too_low_to_charge
+      name: warning battery too low to charge
+    fault_dc_dc_over_current:
+      id: ${nm}_fault_dc_dc_over_current
+      name: fault dc dc over current
+    fault_code:
+      id: ${nm}_fault_code
+      name: fault code
+#    warning_low_pv_energy:
+#      id: ${nm}_warning_low_pv_energy
+#      name: warning low pv energy
+    warning_high_ac_input_during_bus_soft_start:
+      id: ${nm}_warning_high_ac_input_during_bus_soft_start
+      name: warning high ac input during bus soft start
+    warning_battery_equalization:
+      id: ${nm}_warning_battery_equalization
+      name: warning battery equalization
+text_sensor:
+  - platform: pipsolar
+    pipsolar_id: inverter0
+    device_mode:
+      id: ${nm}_device_mode
+      name: device mode
+      filters:
+        map:
+          - P -> Power on mode
+          - S -> Standby mode
+          - L -> Line mode
+          - B -> Battery mode
+          - F -> Fault mode
+          - D -> Shutdown mode
+    last_qpigs:
+      id: ${nm}_last_qpigs
+      name: last qpigs
+    last_qpiri:
+      id: ${nm}_last_qpiri
+      name: last qpiri
+    last_qmod:
+      id: ${nm}_last_qmod
+      name: last qmod
+    last_qflag:
+      id: ${nm}_last_qflag
+      name: last qflag
+    last_qpiws:
+      id: ${nm}_last_qpiws
+      name: last qpiws
+    last_qt:
+      id: ${nm}_last_qt
+      name: last qt
+    last_qmn:
+      id: ${nm}_last_qmn
+      name: last qmn
+switch:
+  - platform: pipsolar
+    pipsolar_id: inverter0
+    output_source_priority_utility:
+      id: output_source_priority_utility
+      name: output source priority utility
+    output_source_priority_solar:
+      id: output_source_priority_solar
+      name: output source priority solar 
+    output_source_priority_battery:
+      id: output_source_priority_battery
+      name: output source priority battery
+    output_source_priority_hybrid:
+      id: output_source_priority_hybrid
+      name: output source priority hybrid
+    input_voltage_range:
+      id: input_voltage_range
+      name: input voltage range
+    pv_ok_condition_for_parallel:
+      id: pv_ok_condition_for_parallel
+      name: pv ok condition for parallel
+    pv_power_balance:
+      id: pv_power_balance
+      name: pv power balance
+output:
+  - platform: pipsolar
+    pipsolar_id: inverter0
+    battery_recharge_voltage:
+      id: battery_recharge_voltage # 44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0
+    battery_under_voltage:
+      id: battery_under_voltage # 40.0,40.1,42,43,44,45,46,47,48.0
+    battery_float_voltage:
+      id: battery_float_voltage # 48.0,49.0,50.0,51.0
+    battery_type:
+      id: battery_type # 0,1,2
+    current_max_ac_charging_current:
+      id: current_max_ac_charging_current # 2,10,20
+    current_max_charging_current:
+      id: current_max_charging_current # 10,20,30,40
+    output_source_priority:
+      id: output_source_priority # 0,1,2
+    charger_source_priority:
+      id: charger_source_priority # 0,1,2,3
+    battery_redischarge_voltage:
+      id: battery_redischarge_voltage # 00.0,48.0,49,50.0,51.0,52,53,54,55,56,57,58
