@@ -144,6 +144,42 @@ sensor:
       name: battery float voltage
     battery_type:
       id: ${nm}_battery_type
+      on_value:
+        then:
+          - if:
+              condition:
+                - lambda: 'return id(${nm}_battery_type).state = 0.0;'
+              then:
+                - text_sensor.template.publish:
+                    id: ${nm}_battery_type_text
+                    state: "AGn"
+          - if:
+              condition:
+                - lambda: 'return id(${nm}_battery_type).state = 1.0;'
+              then:
+                - text_sensor.template.publish:
+                    id: ${nm}_battery_type_text
+                    state: "FLd"
+          - if:
+              condition:
+                - lambda: 'return id(${nm}_battery_type).state = 2.0;'
+              then:
+                - text_sensor.template.publish:
+                    id: ${nm}_battery_type_text
+                    state: "Li"
+
+
+
+
+
+
+#        - if:
+#            condition:
+#              - lambda: 'return id(${nm}_output_source_priority).state = 0.0;'
+#            then:
+#              - select.set:
+#                  id: ${nm}_output_source_priority_select
+#                  option: "SUb"
 #      name: battery type
     current_max_ac_charging_current:
       id: ${nm}_current_max_ac_charging_current
@@ -410,6 +446,10 @@ binary_sensor:
       id: ${nm}_warning_battery_equalization
       name: warning battery equalization
 text_sensor:
+  - platform: template
+    battery_type:
+      id: ${nm}_battery_type_text
+#      name: Battery type
   - platform: pipsolar
     pipsolar_id: inverter0
     device_mode:
