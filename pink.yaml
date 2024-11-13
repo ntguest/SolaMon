@@ -61,48 +61,6 @@ select:
                   id: ${nm}_output_source_priority_output
                   value: 2
 
-
-  - platform: template
-    name: "Сharger source priority"
-    id: ${nm}_charger_source_priority_select
-    entity_category: config
-    optimistic: true
-    restore_value: true 
-    options:
-      - CSO
-      - SNU
-      - OSO
-    on_value:
-      then:
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_charger_source_priority_select).state == "0";'
-            then:
-              - output.pipsolar.set_level:
-                  id: ${nm}_charger_source_priority_output
-                  value: 0
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_charger_source_priority_select).state == "CSO";'
-            then:
-              - output.pipsolar.set_level:
-                  id: ${nm}_charger_source_priority_output
-                  value: 1
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_charger_source_priority_select).state == "SNU";'
-            then:
-              - output.pipsolar.set_level:
-                  id: ${nm}_charger_source_priority_output
-                  value: 2
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_charger_source_priority_select).state == "OSO";'
-            then:
-              - output.pipsolar.set_level:
-                  id: ${nm}_charger_source_priority_output
-                  value: 3
-
 sensor:
   - platform: pipsolar
     pipsolar_id: inverter0
