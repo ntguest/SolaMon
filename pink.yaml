@@ -447,8 +447,8 @@ binary_sensor:
       name: warning battery equalization
 text_sensor:
   - platform: template
-      id: ${nm}_battery_type_text
-      name: Battery type
+    id: ${nm}_battery_type_text
+    name: Battery type
   - platform: pipsolar
     pipsolar_id: inverter0
     device_mode:
