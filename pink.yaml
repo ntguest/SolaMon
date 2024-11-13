@@ -1,21 +1,21 @@
-esphome:
-  on_boot:
-      priority: 800
-      then:
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_output_source_priority).state = 0.0;'
-            then:
-              - select.set:
-                  id: ${nm}_output_source_priority_select
-                  option: "SUb"
-        - if:
-            condition:
-              - lambda: 'return id(${nm}_output_source_priority).state = 2.0;'
-            then:
-              - select.set:
-                  id: ${nm}_output_source_priority_select
-                  option: "SbU"
+#esphome:
+#  on_boot:
+#      priority: 800
+#      then:
+#        - if:
+#            condition:
+#              - lambda: 'return id(${nm}_output_source_priority).state = 0.0;'
+#            then:
+#              - select.set:
+#                  id: ${nm}_output_source_priority_select
+#                  option: "SUb"
+#        - if:
+#            condition:
+#              - lambda: 'return id(${nm}_output_source_priority).state = 2.0;'
+#            then:
+#              - select.set:
+#                  id: ${nm}_output_source_priority_select
+#                  option: "SbU"
 
 uart:
   - id: rs232
@@ -40,6 +40,7 @@ select:
     id: ${nm}_output_source_priority_select
     entity_category: config
     optimistic: true
+    restore_value: true 
     options:
       - SUb
       - SbU
