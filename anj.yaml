@@ -414,7 +414,17 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.1
-#############
+
+
+
+
+
+
+
+
+
+
+
    # Output voltage                                        0.1V    Uint  320 1 R/W
   - platform: modbus_controller
     modbus_controller_id: anj0
@@ -568,7 +578,15 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.1
-####################################
+
+
+
+
+
+
+
+
+
   # Rated power                                           W       Uint  643 1 R
   - platform: modbus_controller
     modbus_controller_id: anj0
