@@ -22,8 +22,7 @@ sensor:
     restore: true
     icon: mdi:counter
     power_id: anj0_pv_average_power
-    filters:
-      # Multiplication factor from W to kW is 0.001
+    filters:      # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
 
