@@ -1,0 +1,249 @@
+external_components:
+  - source: github://syssi/esphome-jk-bms@main
+    refresh: 0s
+
+ota:
+  platform: esphome
+  on_begin:
+    then:
+      - switch.turn_off: ble_client_switch0
+      - logger.log: "BLE connection suspended for OTA update"
+  on_end:
+    then:
+      - switch.turn_on: ble_client_switch0
+      - logger.log: "BLE connection enabled after OTA update"
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: false
+
+ble_client:
+  - mac_address: ${mac}
+    id: client0
+
+jk_bms_ble:
+  - ble_client_id: client0
+    protocol_version: JK02_32S
+    throttle: 5s
+    id: bms0
+
+binary_sensor:
+  - platform: jk_bms_ble
+    balancing:
+      name: "Balancing"
+    charging:
+      name: "Charging"
+    discharging:
+      name: "Discharging"
+    heating:
+      name: "Heating"
+    online_status:
+      name: "Online status"
+
+button:
+  - platform: jk_bms_ble
+    retrieve_settings:
+      name: "Retrieve settings"
+    retrieve_device_info:
+      name: "Retrieve device info"
+
+number:
+  - platform: jk_bms_ble
+    jk_bms_ble_id: bms0
+    balance_trigger_voltage:
+      name: "Balance trigger voltage"
+    cell_count:
+      name: "Cell count"
+    total_battery_capacity:
+      name: "Total battery capacity"
+    cell_voltage_overvoltage_protection:
+      name: "Cell voltage overvoltage protection"
+    cell_voltage_overvoltage_recovery:
+      name: "Cell voltage overvoltage recovery"
+    cell_voltage_undervoltage_protection:
+      name: "Cell voltage undervoltage protection"
+    cell_voltage_undervoltage_recovery:
+      name: "Cell voltage undervoltage recovery"
+    balance_starting_voltage:
+      name: "Balance starting voltage"
+    voltage_calibration:
+      name: "Voltage calibration"
+    current_calibration:
+      name: "Current calibration"
+    power_off_voltage:
+      name: "Power off voltage"
+    max_balance_current:
+      name: "Max balance current"
+    max_charge_current:
+      name: "Max charge current"
+    max_discharge_current:
+      name: "Max discharge current"
+    charge_overcurrent_protection_delay:
+      name: "Charge overcurrent protection delay"
+    charge_overcurrent_protection_recovery_time:
+      name: "Charge overcurrent protection recovery time"
+    discharge_overcurrent_protection_delay:
+      name: "Discharge overcurrent protection delay"
+    discharge_overcurrent_protection_recovery_time:
+      name: "Discharge overcurrent protection recovery time"
+    short_circuit_protection_delay:
+      name: "Short circuit protection delay"
+    short_circuit_protection_recovery_time:
+      name: "Short circuit protection recovery time"
+    charge_overtemperature_protection:
+      name: "Charge overtemperature protection"
+    charge_overtemperature_protection_recovery:
+      name: "Charge overtemperature protection recovery"
+    discharge_overtemperature_protection:
+      name: "Discharge overtemperature protection"
+    discharge_overtemperature_protection_recovery:
+      name: "Discharge overtemperature protection recovery"
+    charge_undertemperature_protection:
+      name: "Charge undertemperature protection"
+    charge_undertemperature_protection_recovery:
+      name: "Charge undertemperature protection recovery"
+    power_tube_overtemperature_protection:
+      name: "Power tube overtemperature protection"
+    power_tube_overtemperature_protection_recovery:
+      name: "Power tube overtemperature protection recovery"
+
+sensor:
+  - platform: jk_bms_ble
+    jk_bms_ble_id: bms0
+    min_cell_voltage:
+      name: "Min cell voltage"
+    max_cell_voltage:
+      name: "Max cell voltage"
+    min_voltage_cell:
+      name: "Min voltage cell"
+    max_voltage_cell:
+      name: "Max voltage cell"
+    delta_cell_voltage:
+      name: "Delta cell voltage"
+    average_cell_voltage:
+      name: "Average cell voltage"
+    cell_voltage_1:
+      name: "Cell voltage 01"
+    cell_voltage_2:
+      name: "Cell voltage 02"
+    cell_voltage_3:
+      name: "Cell voltage 03"
+    cell_voltage_4:
+      name: "Cell voltage 04"
+    cell_voltage_5:
+      name: "Cell voltage 05"
+    cell_voltage_6:
+      name: "Cell voltage 06"
+    cell_voltage_7:
+      name: "Cell voltage 07"
+    cell_voltage_8:
+      name: "Cell voltage 08"
+    cell_voltage_9:
+      name: "Cell voltage 09"
+    cell_voltage_10:
+      name: "Cell voltage 10"
+    cell_voltage_11:
+      name: "Cell voltage 11"
+    cell_voltage_12:
+      name: "Cell voltage 12"
+    cell_voltage_13:
+      name: "Cell voltage 13"
+    cell_voltage_14:
+      name: "Cell voltage 14"
+    cell_voltage_15:
+      name: "Cell voltage 15"
+    cell_voltage_16:
+      name: "Cell voltage 16"
+    cell_resistance_1:
+      name: "Cell resistance 01"
+    cell_resistance_2:
+      name: "Cell resistance 02"
+    cell_resistance_3:
+      name: "Cell resistance 03"
+    cell_resistance_4:
+      name: "Cell resistance 04"
+    cell_resistance_5:
+      name: "Cell resistance 05"
+    cell_resistance_6:
+      name: "Cell resistance 06"
+    cell_resistance_7:
+      name: "Cell resistance 07"
+    cell_resistance_8:
+      name: "Cell resistance 08"
+    cell_resistance_9:
+      name: "Cell resistance 09"
+    cell_resistance_10:
+      name: "Cell resistance 10"
+    cell_resistance_11:
+      name: "Cell resistance 11"
+    cell_resistance_12:
+      name: "Cell resistance 12"
+    cell_resistance_13:
+      name: "Cell resistance 13"
+    cell_resistance_14:
+      name: "Cell resistance 14"
+    cell_resistance_15:
+      name: "Cell resistance 15"
+    cell_resistance_16:
+      name: "Cell resistance 16"
+    total_voltage:
+      name: "Total voltage"
+    current:
+      name: "Current"
+    heating_current:
+      name: "Heating current"
+    power:
+      name: "Power"
+    charging_power:
+      name: "Charging power"
+    discharging_power:
+      name: "Discharging power"
+    temperature_sensor_1:
+      name: "Temperature sensor 1"
+    temperature_sensor_2:
+      name: "Temperature sensor 2"
+    # temperature_sensor_3:
+    #   name: "temperature sensor 3"
+    # temperature_sensor_4:
+    #   name: "temperature sensor 4"
+    power_tube_temperature:
+      name: "Power tube temperature"
+    balancing:
+      name: "Balancing"
+    state_of_charge:
+      name: "State of charge"
+    capacity_remaining:
+      name: "Capacity remaining"
+    total_battery_capacity_setting:
+      name: "Total battery capacity setting"
+    charging_cycles:
+      name: "Charging cycles"
+    total_charging_cycle_capacity:
+      name: "Total charging cycle capacity"
+    total_runtime:
+      name: "Total runtime"
+    balancing_current:
+      name: "Balancing current"
+    errors_bitmask:
+      name: "Errors bitmask"
+
+switch:
+  - platform: jk_bms_ble
+    charging:
+      name: "Charging"
+    discharging:
+      name: "Discharging"
+    balancer:
+      name: "Balancer"
+
+  - platform: ble_client
+    ble_client_id: client0
+    id: ble_client_switch0
+    name: "Enable bluetooth connection"
+
+text_sensor:
+  - platform: jk_bms_ble
+    errors:
+      name: "Errors"
+    total_runtime_formatted:
+      name: "Total runtime formatted"
