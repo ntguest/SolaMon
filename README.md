@@ -33,11 +33,12 @@ substitutions:
   update_interval: 12s
   inverter_voltage_offset: "0"
   select_skip_updates: "2"
+  device_name: solamon
 
 packages:
   remote_package:
     url: https://github.com/ntguest/SolaMon
     ref: main
     files:
-      - solamon.yaml.yaml
+      - solamon.yaml
 ```
