@@ -606,6 +606,7 @@ select:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Output mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 300
     value_type: U_WORD
@@ -633,6 +634,7 @@ select:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Input voltage range"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 302
     value_type: U_WORD
@@ -644,6 +646,7 @@ select:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Buzzer mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 303
     value_type: U_WORD
@@ -657,6 +660,7 @@ select:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "LCD backlight"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 305
     value_type: U_WORD
@@ -681,6 +685,7 @@ select:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Turn on mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 406
     value_type: U_WORD
@@ -694,6 +699,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "LCD automatically returns to the homepage"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 306
     register_type: holding
@@ -703,6 +709,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Energy-saving mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 307
     register_type: holding
@@ -712,6 +719,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Overload automatic restart"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 308
     register_type: holding
@@ -721,6 +729,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Over temperature automatic restart"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 309
     register_type: holding
@@ -730,6 +739,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Overload transfer to bypass enabled"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 310
     register_type: holding
@@ -748,6 +758,7 @@ switch:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Remote switch"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 420
     register_type: holding
@@ -883,6 +894,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Output voltage"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 320
     register_type: holding
@@ -899,6 +911,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Output frequency setting"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 321
     register_type: holding
@@ -915,6 +928,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Battery overvoltage protection point"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 323
     register_type: holding
@@ -931,6 +945,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Max charging voltage"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 324
     register_type: holding
@@ -947,6 +962,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Floating charging voltage"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 325
     register_type: holding
@@ -963,6 +979,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Battery discharge recovery point in mains mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 326
     register_type: holding
@@ -979,6 +996,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Battery low voltage protection point in mains mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 327
     register_type: holding
@@ -995,6 +1013,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Battery low voltage protection point in off-grid mode"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 329
     register_type: holding
@@ -1043,6 +1062,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Eq Charging voltage"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 334
     register_type: holding
@@ -1059,6 +1079,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Battery equalization time"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 335
     register_type: holding
@@ -1072,6 +1093,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Equalization Timeout exit"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 336
     register_type: holding
@@ -1085,6 +1107,7 @@ number:
   - platform: modbus_controller
     modbus_controller_id: anj0
     name: "Two equalization charging intervals"
+    entity_category: CONFIG 
     use_write_multiple: true
     address: 337
     register_type: holding
