@@ -1,5 +1,15 @@
+substitutions:
+  name: jk-bms
+  device_description: "Monitor and control a JK-BMS via bluetooth"
+  external_components_source: github://syssi/esphome-jk-bms@main
+  mac_address: C8:47:8C:E1:E2:AA
+  # Please use "JK02_24S" if you own a old JK-BMS < hardware version 11.0 (hardware version >= 6.0 and < 11.0)
+  # Please use "JK02_32S" if you own a new JK-BMS >= hardware version 11.0 (f.e. JK-B2A8S20P hw 11.XW, sw 11.26)
+  # Please use "JK04" if you have some old JK-BMS <= hardware version 3.0 (f.e. JK-B2A16S hw 3.0, sw. 3.3.0)
+  protocol_version: JK02_24S
+
 external_components:
-  - source: github://syssi/esphome-jk-bms@main
+  - source: ${external_components_source}
     refresh: 0s
 
 ota:
@@ -18,232 +28,232 @@ esp32_ble_tracker:
     active: false
 
 ble_client:
-  - mac_address: ${mac}
+  - mac_address: ${bms_mac}
     id: client0
 
 jk_bms_ble:
   - ble_client_id: client0
-    protocol_version: JK02_32S
+    protocol_version: ${bms_protocol}
     throttle: 5s
     id: bms0
 
 binary_sensor:
   - platform: jk_bms_ble
     balancing:
-      name: "Balancing"
+      name: "BMS balancing"
     charging:
-      name: "Charging"
+      name: "BMS charging"
     discharging:
-      name: "Discharging"
+      name: "BMS discharging"
     heating:
-      name: "Heating"
+      name: "BMS heating"
     online_status:
-      name: "Online status"
+      name: "BMS online status"
 
 button:
   - platform: jk_bms_ble
     retrieve_settings:
-      name: "Retrieve settings"
+      name: "BMS retrieve settings"
     retrieve_device_info:
-      name: "Retrieve device info"
+      name: "BMS retrieve device info"
 
 number:
   - platform: jk_bms_ble
     jk_bms_ble_id: bms0
     balance_trigger_voltage:
-      name: "Balance trigger voltage"
+      name: "BMS balance trigger voltage"
     cell_count:
-      name: "Cell count"
+      name: "BMS cell count"
     total_battery_capacity:
-      name: "Total battery capacity"
+      name: "BMS total battery capacity"
     cell_voltage_overvoltage_protection:
-      name: "Cell voltage overvoltage protection"
+      name: "BMS cell voltage overvoltage protection"
     cell_voltage_overvoltage_recovery:
-      name: "Cell voltage overvoltage recovery"
+      name: "BMS cell voltage overvoltage recovery"
     cell_voltage_undervoltage_protection:
-      name: "Cell voltage undervoltage protection"
+      name: "BMS cell voltage undervoltage protection"
     cell_voltage_undervoltage_recovery:
-      name: "Cell voltage undervoltage recovery"
+      name: "BMS cell voltage undervoltage recovery"
     balance_starting_voltage:
-      name: "Balance starting voltage"
+      name: "BMS balance starting voltage"
     voltage_calibration:
-      name: "Voltage calibration"
+      name: "BMS voltage calibration"
     current_calibration:
-      name: "Current calibration"
+      name: "BMS current calibration"
     power_off_voltage:
-      name: "Power off voltage"
+      name: "BMS power off voltage"
     max_balance_current:
-      name: "Max balance current"
+      name: "BMS max balance current"
     max_charge_current:
-      name: "Max charge current"
+      name: "BMS max charge current"
     max_discharge_current:
-      name: "Max discharge current"
+      name: "BMS max discharge current"
     charge_overcurrent_protection_delay:
-      name: "Charge overcurrent protection delay"
+      name: "BMS charge overcurrent protection delay"
     charge_overcurrent_protection_recovery_time:
-      name: "Charge overcurrent protection recovery time"
+      name: "BMS charge overcurrent protection recovery time"
     discharge_overcurrent_protection_delay:
-      name: "Discharge overcurrent protection delay"
+      name: "BMS discharge overcurrent protection delay"
     discharge_overcurrent_protection_recovery_time:
-      name: "Discharge overcurrent protection recovery time"
+      name: "BMS discharge overcurrent protection recovery time"
     short_circuit_protection_delay:
-      name: "Short circuit protection delay"
+      name: "BMS short circuit protection delay"
     short_circuit_protection_recovery_time:
-      name: "Short circuit protection recovery time"
+      name: "BMS short circuit protection recovery time"
     charge_overtemperature_protection:
-      name: "Charge overtemperature protection"
+      name: "BMS charge overtemperature protection"
     charge_overtemperature_protection_recovery:
-      name: "Charge overtemperature protection recovery"
+      name: "BMS charge overtemperature protection recovery"
     discharge_overtemperature_protection:
-      name: "Discharge overtemperature protection"
+      name: "BMS discharge overtemperature protection"
     discharge_overtemperature_protection_recovery:
-      name: "Discharge overtemperature protection recovery"
+      name: "BMS discharge overtemperature protection recovery"
     charge_undertemperature_protection:
-      name: "Charge undertemperature protection"
+      name: "BMS charge undertemperature protection"
     charge_undertemperature_protection_recovery:
-      name: "Charge undertemperature protection recovery"
+      name: "BMS charge undertemperature protection recovery"
     power_tube_overtemperature_protection:
-      name: "Power tube overtemperature protection"
+      name: "BMS power tube overtemperature protection"
     power_tube_overtemperature_protection_recovery:
-      name: "Power tube overtemperature protection recovery"
+      name: "BMS power tube overtemperature protection recovery"
 
 sensor:
   - platform: jk_bms_ble
     jk_bms_ble_id: bms0
     min_cell_voltage:
-      name: "Min cell voltage"
+      name: "BMS min cell voltage"
     max_cell_voltage:
-      name: "Max cell voltage"
+      name: "BMS max cell voltage"
     min_voltage_cell:
-      name: "Min voltage cell"
+      name: "BMS min voltage cell"
     max_voltage_cell:
-      name: "Max voltage cell"
+      name: "BMS max voltage cell"
     delta_cell_voltage:
-      name: "Delta cell voltage"
+      name: "BMS delta cell voltage"
     average_cell_voltage:
-      name: "Average cell voltage"
+      name: "BMS average cell voltage"
     cell_voltage_1:
-      name: "Cell voltage 01"
+      name: "BMS cell voltage 01"
     cell_voltage_2:
-      name: "Cell voltage 02"
+      name: "BMS cell voltage 02"
     cell_voltage_3:
-      name: "Cell voltage 03"
+      name: "BMS cell voltage 03"
     cell_voltage_4:
-      name: "Cell voltage 04"
+      name: "BMS cell voltage 04"
     cell_voltage_5:
-      name: "Cell voltage 05"
+      name: "BMS cell voltage 05"
     cell_voltage_6:
-      name: "Cell voltage 06"
+      name: "BMS cell voltage 06"
     cell_voltage_7:
-      name: "Cell voltage 07"
+      name: "BMS cell voltage 07"
     cell_voltage_8:
-      name: "Cell voltage 08"
+      name: "BMS cell voltage 08"
     cell_voltage_9:
-      name: "Cell voltage 09"
+      name: "BMS cell voltage 09"
     cell_voltage_10:
-      name: "Cell voltage 10"
+      name: "BMS cell voltage 10"
     cell_voltage_11:
-      name: "Cell voltage 11"
+      name: "BMS cell voltage 11"
     cell_voltage_12:
-      name: "Cell voltage 12"
+      name: "BMS cell voltage 12"
     cell_voltage_13:
-      name: "Cell voltage 13"
+      name: "BMS cell voltage 13"
     cell_voltage_14:
-      name: "Cell voltage 14"
+      name: "BMS cell voltage 14"
     cell_voltage_15:
-      name: "Cell voltage 15"
+      name: "BMS cell voltage 15"
     cell_voltage_16:
-      name: "Cell voltage 16"
+      name: "BMS cell voltage 16"
     cell_resistance_1:
-      name: "Cell resistance 01"
+      name: "BMS cell resistance 01"
     cell_resistance_2:
-      name: "Cell resistance 02"
+      name: "BMS cell resistance 02"
     cell_resistance_3:
-      name: "Cell resistance 03"
+      name: "BMS cell resistance 03"
     cell_resistance_4:
-      name: "Cell resistance 04"
+      name: "BMS cell resistance 04"
     cell_resistance_5:
-      name: "Cell resistance 05"
+      name: "BMS cell resistance 05"
     cell_resistance_6:
-      name: "Cell resistance 06"
+      name: "BMS cell resistance 06"
     cell_resistance_7:
-      name: "Cell resistance 07"
+      name: "BMS cell resistance 07"
     cell_resistance_8:
-      name: "Cell resistance 08"
+      name: "BMS cell resistance 08"
     cell_resistance_9:
-      name: "Cell resistance 09"
+      name: "BMS cell resistance 09"
     cell_resistance_10:
-      name: "Cell resistance 10"
+      name: "BMS cell resistance 10"
     cell_resistance_11:
-      name: "Cell resistance 11"
+      name: "BMS cell resistance 11"
     cell_resistance_12:
-      name: "Cell resistance 12"
+      name: "BMS cell resistance 12"
     cell_resistance_13:
-      name: "Cell resistance 13"
+      name: "BMS cell resistance 13"
     cell_resistance_14:
-      name: "Cell resistance 14"
+      name: "BMS cell resistance 14"
     cell_resistance_15:
-      name: "Cell resistance 15"
+      name: "BMS cell resistance 15"
     cell_resistance_16:
-      name: "Cell resistance 16"
+      name: "BMS cell resistance 16"
     total_voltage:
-      name: "Total voltage"
+      name: "BMS total voltage"
     current:
-      name: "Current"
+      name: "BMS current"
     heating_current:
-      name: "Heating current"
+      name: "BMS heating current"
     power:
-      name: "Power"
+      name: "BMS power"
     charging_power:
-      name: "Charging power"
+      name: "BMS charging power"
     discharging_power:
-      name: "Discharging power"
+      name: "BMS discharging power"
     temperature_sensor_1:
-      name: "Temperature sensor 1"
+      name: "BMS temperature sensor 1"
     temperature_sensor_2:
-      name: "Temperature sensor 2"
-    # temperature_sensor_3:
-    #   name: "temperature sensor 3"
-    # temperature_sensor_4:
-    #   name: "temperature sensor 4"
+      name: "BMS temperature sensor 2"
+    temperature_sensor_3:
+      name: "BMS temperature sensor 3"
+    temperature_sensor_4:
+      name: "BMS temperature sensor 4"
     power_tube_temperature:
-      name: "Power tube temperature"
+      name: "BMS power tube temperature"
     balancing:
-      name: "Balancing"
+      name: "BMS balancing"
     state_of_charge:
-      name: "State of charge"
+      name: "BMS state of charge"
     capacity_remaining:
-      name: "Capacity remaining"
+      name: "BMS capacity remaining"
     total_battery_capacity_setting:
-      name: "Total battery capacity setting"
+      name: "BMS total battery capacity setting"
     charging_cycles:
-      name: "Charging cycles"
+      name: "BMS charging cycles"
     total_charging_cycle_capacity:
-      name: "Total charging cycle capacity"
+      name: "BMS total charging cycle capacity"
     total_runtime:
-      name: "Total runtime"
+      name: "BMS total runtime"
     balancing_current:
-      name: "Balancing current"
+      name: "BMS balancing current"
     errors_bitmask:
-      name: "Errors bitmask"
+      name: "BMS errors bitmask"
 
 switch:
   - platform: jk_bms_ble
     charging:
-      name: "Charging"
+      name: "BMS charging"
     discharging:
-      name: "Discharging"
+      name: "BMS discharging"
     balancer:
-      name: "Balancer"
+      name: "BMS balancer"
 
   - platform: ble_client
     ble_client_id: client0
     id: ble_client_switch0
-    name: "Enable bluetooth connection"
+    name: "BMS enable bluetooth connection"
 
 text_sensor:
   - platform: jk_bms_ble
     errors:
-      name: "Errors"
+      name: "BMS errors"
     total_runtime_formatted:
-      name: "Total runtime formatted"
+      name: "BMS total runtime formatted"
