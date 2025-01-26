@@ -1,5 +1,5 @@
 external_components:
-  - source: ${external_components_source}
+  - source: github://syssi/esphome-jk-bms@main
     refresh: 0s
 
 ota:
