@@ -35,8 +35,8 @@ binary_sensor:
       name: "BMS charging"
     discharging:
       name: "BMS discharging"
-    heating:
-      name: "BMS heating"
+#    heating:
+      #name: "BMS heating"
     online_status:
       name: "BMS online status"
 
@@ -150,10 +150,6 @@ sensor:
       name: "BMS cell voltage 13"
     cell_voltage_14:
       name: "BMS cell voltage 14"
-    cell_voltage_15:
-      name: "BMS cell voltage 15"
-    cell_voltage_16:
-      name: "BMS cell voltage 16"
     cell_resistance_1:
       name: "BMS cell resistance 01"
     cell_resistance_2:
@@ -182,16 +178,12 @@ sensor:
       name: "BMS cell resistance 13"
     cell_resistance_14:
       name: "BMS cell resistance 14"
-    cell_resistance_15:
-      name: "BMS cell resistance 15"
-    cell_resistance_16:
-      name: "BMS cell resistance 16"
     total_voltage:
       name: "BMS total voltage"
     current:
       name: "BMS current"
-    heating_current:
-      name: "BMS heating current"
+#    heating_current:
+#      name: "BMS heating current"
     power:
       name: "BMS power"
     charging_power:
